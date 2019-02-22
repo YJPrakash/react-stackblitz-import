@@ -3,6 +3,14 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.inputRef = React.createRef();
+  }
+  pop(e){
+    console.log("target", e.target);
+    console.log("ref", this.inputRef.current);
+  }
   render() {
     return (
       <div className="App">
@@ -11,15 +19,7 @@ class App extends Component {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <input type="button" ref={this.inputRef} value="Click here.." onClick={this.pop.bind(this)} />         </header>
       </div>
     );
   }
